@@ -4,10 +4,10 @@ import { CampersResponse, Camper } from '../types/campers';
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 export const getCampers = async () => {
-  const res = await axios.get<CampersResponse>('');
-  return res.data;
+  const res = await axios.get<CampersResponse>('/');
+  return res.data.items;
 };
 export const getCamperById = async () => {
-  const result = await axios.get<Camper>('');
+  const result = await axios.get<Camper>(`/${id}`);
   return result.data;
 };
