@@ -1,0 +1,9 @@
+.date {
+  border-radius: 12px;
+  padding: 18px 337px 18px 18px;
+  width: 527px;
+  height: 60px;
+  background: var(--inputs);
+  margin-bottom: 14px;
+  border: none;
+}

@@ -1,0 +1,54 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.columns {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+.tabs {
+  display: flex;
+  gap: 40px;
+  width: 1312px;
+  margin-bottom: 24px;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 8px;
+}
+
+.active {
+  border-bottom: 2px solid var(--main);
+}
+.line {
+  height: 1px;
+  background-color: var(--gray);
+  width: 1312px;
+}
+
+/* .left {
+  border-radius: 10px;
+  padding: 44px 52px;
+  width: 631px;
+  height: 588px;
+  background-color: var(--inputs);
+} */
+.leftFeatures {
+  border-radius: 10px;
+  padding: 44px 52px;
+  width: 631px;
+  height: 588px;
+  background-color: var(--inputs);
+  margin-top: 44px;
+}
+.leftReviews {
+  width: 631px;
+  height: 340px;
+  margin-top: 56px;
+}

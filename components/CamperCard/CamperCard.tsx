@@ -2,6 +2,8 @@ import Image from 'next/image';
 import css from '@/components/CamperCard/Campercard.module.css';
 import Button from '../Button/Button';
 import { Camper } from '@/types/campers';
+import Features from '../Features/Features';
+import BoxRating from '../BoxRating/BoxRating';
 
 interface CamperCardProps {
   camper: Camper;
@@ -27,50 +29,9 @@ export default function CamperCard({ camper }: CamperCardProps) {
             </svg>
           </div>
         </div>
-        <div className={css.boxRating}>
-          <div className={css.ratingStar}>
-            <svg className={css.icon} height={16} width={16}>
-              <use href="/images/icons.svg#icon-star"></use>
-            </svg>
-            <p className={css.rating}>Rating: {camper.rating}</p>
-            <p className={css.reviews}>({camper.reviews.length} Reviews)</p>
-          </div>
-          <div className={css.boxLocation}>
-            <svg className={css.icon} height={16} width={16}>
-              <use href="/images/icons.svg#icon-vector"></use>
-            </svg>
-            <p className={css.location}>{camper.location}</p>
-          </div>
-        </div>
+        <BoxRating camper={camper} />
         <p className={css.desc}>{camper.description}</p>
-        <div className={css.features}>
-          {(
-            [
-              camper.AC && { name: 'AC', icon: 'icon-AC' },
-              camper.bathroom && { name: 'Bathroom', icon: 'icon-bathroom' },
-              camper.kitchen && { name: 'Kitchen', icon: 'icon-kitchen' },
-              camper.TV && { name: 'TV', icon: 'icon-tv' },
-              camper.radio && { name: 'Radio', icon: 'icon-radio' },
-              camper.refrigerator && {
-                name: 'Refrigerator',
-                icon: 'icon-refrigerator',
-              },
-              camper.microwave && { name: 'Microwave', icon: 'icon-microvawe' },
-              camper.gas && { name: 'Gas', icon: 'icon-gas' },
-              camper.water && { name: 'Water', icon: 'icon-water' },
-            ] as { name: string; icon: string }[]
-          )
-            .filter(Boolean)
-            .map((feature) => (
-              <span key={feature.name} className={css.featureBtn}>
-                <svg className={css.icon} width={20} height={20}>
-                  <use href={`/images/icons.svg#${feature.icon}`}></use>
-                </svg>
-                {feature.name}
-              </span>
-            ))}
-        </div>
-
+        <Features camper={camper} />
         <Button size="m">Show more</Button>
       </div>
     </div>

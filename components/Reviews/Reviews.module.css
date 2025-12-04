@@ -1,0 +1,48 @@
+.review {
+  width: 631px;
+  height: 148px;
+  margin-bottom: 44px;
+}
+.avatar {
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+  background: var(--badges);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--button);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.name {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
+}
+.stars {
+}
+.starActive {
+}
+.comment {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  width: 631px;
+}
+.nameStar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.infoReviews {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
