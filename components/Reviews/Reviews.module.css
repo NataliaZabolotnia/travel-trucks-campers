@@ -24,10 +24,7 @@
   line-height: 150%;
   color: var(--main);
 }
-.stars {
-}
-.starActive {
-}
+
 .comment {
   font-family: var(--font-family);
   font-weight: 400;
@@ -45,4 +42,16 @@
   display: flex;
   flex-direction: row;
   gap: 16px;
+}
+.stars {
+  display: flex;
+  gap: 4px; /* Розрив між зірочками */
+}
+
+.star {
+  fill: #e0e0e0; /* Колір неактивної зірочки (сірий) */
+}
+
+.starActive {
+  fill: #ffc107; /* Жовтий колір для активної зірочки */
 }

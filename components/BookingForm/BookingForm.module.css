@@ -32,7 +32,7 @@
   width: 527px;
   height: 60px;
   background: var(--inputs);
-  margin-bottom: 14px;
+
   border: none;
 }
 .email {
@@ -41,7 +41,7 @@
   width: 527px;
   height: 60px;
   background: var(--inputs);
-  margin-bottom: 14px;
+  margin-top: 14px;
   border: none;
 }
 .date {
@@ -50,7 +50,7 @@
   width: 527px;
   height: 60px;
   background: var(--inputs);
-  margin-bottom: 14px;
+  margin-top: 14px;
   border: none;
 }
 .comment {
@@ -60,9 +60,15 @@
   height: 60px;
   background: var(--inputs);
   border: none;
-  margin-bottom: 24px;
+  margin-top: 14px;
 }
 .btnWrapper {
   display: flex;
   justify-content: center;
+  margin-top: 24px;
+}
+.error {
+  color: #d00;
+  font-size: 12px;
+  margin-top: 4px;
 }

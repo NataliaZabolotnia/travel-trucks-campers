@@ -21,8 +21,28 @@
   font-size: 20px;
   font-weight: 600;
   padding-bottom: 8px;
+  position: relative;
 }
-
+/*  */
+.tabs button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-top: 24px;
+  width: 0;
+  height: 1px;
+  background-color: var(--main);
+  transition: width 0.3s ease;
+}
+.tabs button.active::after {
+  width: 100%; /* Ширина лінії при активності */
+  stroke-width: 5px;
+  background-color: var(--button);
+  bottom: -25px;
+  height: 5px;
+}
+/*  */
 .active {
   border-bottom: 2px solid var(--main);
 }
@@ -32,13 +52,6 @@
   width: 1312px;
 }
 
-/* .left {
-  border-radius: 10px;
-  padding: 44px 52px;
-  width: 631px;
-  height: 588px;
-  background-color: var(--inputs);
-} */
 .leftFeatures {
   border-radius: 10px;
   padding: 44px 52px;

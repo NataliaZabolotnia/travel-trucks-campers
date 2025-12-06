@@ -4,6 +4,11 @@
   width: 527px;
   height: 60px;
   background: var(--inputs);
-  margin-bottom: 14px;
+  margin-top: 14px;
   border: none;
+}
+.error {
+  color: #d00;
+  font-size: 12px;
+  margin-top: 4px;
 }

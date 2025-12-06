@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 import { Camper } from '@/types/campers';
 import Features from '../Features/Features';
 import BoxRating from '../BoxRating/BoxRating';
+import Link from 'next/link';
 
 interface CamperCardProps {
   camper: Camper;
@@ -32,7 +33,9 @@ export default function CamperCard({ camper }: CamperCardProps) {
         <BoxRating camper={camper} />
         <p className={css.desc}>{camper.description}</p>
         <Features camper={camper} />
-        <Button size="m">Show more</Button>
+        <Link href={`/catalog/${camper.id}`} passHref>
+          <Button size="m">Show more</Button>
+        </Link>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import css from './page.module.css';
 import Button from '@/components/Button/Button';
+import Link from 'next/link';
 export default function TravelTrucks() {
   return (
     <main>
@@ -9,10 +10,9 @@ export default function TravelTrucks() {
           <p className={css.descr}>
             You can find everything you want in our catalog
           </p>
-          {/* <button type="button" className={css.btnViewNow}>
-            View Now
-          </button> */}
-          <Button size="l">View Now</Button>
+          <Link href="/catalog" passHref>
+            <Button size="l">View Now</Button>
+          </Link>
         </div>
       </section>
     </main>

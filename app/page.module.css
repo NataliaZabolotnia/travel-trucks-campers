@@ -6,6 +6,8 @@
   background-image: url('../public/images/picture.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  width: 1440px;
+  height: 696px;
 }
 
 .pageContent {

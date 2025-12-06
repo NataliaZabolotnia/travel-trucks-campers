@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import css from '@/app/catalog/[id]/page.module.css';
-import Button from '@/components/Button/Button';
+// import Button from '@/components/Button/Button';
 import { Camper } from '@/types/campers';
-import Features from '@/components/Features/Features';
+// import Features from '@/components/Features/Features';
 import { getCamperById } from '@/lib/api';
 import BoxRating from '@/components/BoxRating/BoxRating';
 import CamperTabs from '@/components/CamperTabs/CamperTabs';
-import VehicleDetails from '@/components/VehicleDetails/VehicleDetails';
+// import VehicleDetails from '@/components/VehicleDetails/VehicleDetails';
 
 interface PageProps {
   params: { id: string | undefined };
