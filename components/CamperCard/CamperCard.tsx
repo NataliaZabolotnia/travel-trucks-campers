@@ -5,12 +5,17 @@ import { Camper } from '@/types/campers';
 import Features from '../Features/Features';
 import BoxRating from '../BoxRating/BoxRating';
 import Link from 'next/link';
+import { useCampersStore } from '@/lib/store/useCampersStore';
 
 interface CamperCardProps {
   camper: Camper;
 }
 
 export default function CamperCard({ camper }: CamperCardProps) {
+  const favorites = useCampersStore((s) => s.favorites);
+  const toggleFavorite = useCampersStore((s) => s.toggleFavorite);
+  const isFav = favorites.includes(camper.id);
+
   return (
     <div className={css.card}>
       <Image
@@ -24,8 +29,13 @@ export default function CamperCard({ camper }: CamperCardProps) {
         <div className={css.box}>
           <h3 className={css.name}>{camper.name}</h3>
           <div className={css.boxRight}>
-            <p className={css.price}>€{camper.price}</p>
-            <svg className={css.icon} height={26} width={24}>
+            <p className={css.price}>€{camper.price}.00</p>
+            <svg
+              className={`${css.icon} ${isFav ? css.activeHeart : ''}`}
+              height={26}
+              width={24}
+              onClick={() => toggleFavorite(camper.id)}
+            >
               <use href="/images/icons.svg#icon-heart"></use>
             </svg>
           </div>

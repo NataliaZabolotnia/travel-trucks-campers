@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TravelTrucks Frontend
 
-## Getting Started
+## Огляд проекту
 
-First, run the development server:
+Це **фронтенд** частина TravelTrucks — сервісу оренди кемперів. Застосунок дозволяє користувачам:
+
+- Переглядати та фільтрувати доступні кемпери.
+- Детально ознайомлюватися з інформацією про конкретний кемпер.
+- Керувати списком улюблених кемперів.
+- Надсилати заявки на бронювання.
+
+Технології: **Next.js**, **TypeScript**, **Zustand**, **Axios**.
+
+## Демо
+
+Ви можете переглянути живий сайт на
+
+---
+
+## Структура сторінок
+
+### Головна (`/`)
+
+- Банер із кнопкою **"View Now"**, що веде до каталогу кемперів.
+
+### Каталог (`/catalog`)
+
+- Показує всі доступні кемпери.
+- Підтримка фільтрів:
+  - **Локація** (текстовий ввід)
+  - **Тип кемпера** (один варіант одночасно)
+  - **Опції/зручності** (AC, кухня, TV, ванна тощо)
+- **"Show More"** на картках для переходу на сторінку деталей конкретного кемпера.
+- **"Load More"** для підвантаження додаткових кемперів (пагінація).
+- Можливість додати кемпери до **обраного**.
+
+### Деталі кемпера (`/catalog/:id`)
+
+- Показує повну інформацію про кемпер.
+- Галерея зображень.
+- Вкладки для **Особливостей** та **Відгуків**.
+- Відображає функції: трансмісія, двигун, AC, ванна, кухня, TV, радіо, холодильник, мікрохвильова піч, газ, вода.
+- Показує характеристики: тип, довжина, ширина, висота, об’єм бака, витрата палива.
+- Форма бронювання з підтвердженням успішної відправки.
+
+---
+
+## Технології
+
+- **Next.js** (App Router)
+- **TypeScript**
+- **Zustand** (керування станом)
+- **Axios** (запити до API)
+- **Tailwind CSS / Styled Components** (для стилів)
+
+---
+
+## API
+
+Фронтенд взаємодіє з бекендом (MockAPI):
+
+- `GET /campers` — отримати список кемперів з підтримкою фільтрів і пагінації.
+- `GET /campers/:id` — отримати інформацію про конкретний кемпер.
+
+---
+
+## Стан додатку
+
+Стан керується за допомогою **Zustand** і включає:
+
+- Список кемперів.
+- Поточні застосовані фільтри.
+- Список обраних кемперів.
+
+**Примітка:** Застосування нових фільтрів скидає попередні результати, щоб завжди отримувати актуальні дані з бекенду.
+
+---
+
+## Як запустити
 
 ```bash
+git clone YOUR_REPO_URL
+cd your-project
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Автор
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Ім'я: Natalia Zabolotnia
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Email: zanatav78@gmail.com
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub: NataliaZabolotnia

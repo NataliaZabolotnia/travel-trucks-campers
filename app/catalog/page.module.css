@@ -124,3 +124,7 @@
   flex-direction: column;
   gap: 40px;
 }
+.eqItem.active {
+  border: 2px solid var(--button-hover);
+  background: #f2f4f7;
+}

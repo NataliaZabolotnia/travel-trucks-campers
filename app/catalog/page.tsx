@@ -18,14 +18,14 @@ const Catalog = () => {
     fetchCampers,
     loadFavorites,
     loadMore,
+    resetFilters,
   } = useCampersStore();
   useEffect(() => {
     loadFavorites();
     fetchCampers();
   }, []);
   const camperList = Array.isArray(campers) ? campers : [];
-  // const campers = await getCampers();
-  // console.log(campers);
+  const loading = useCampersStore((s) => s.loading);
 
   return (
     <section className={css.catalog}>
@@ -50,14 +50,21 @@ const Catalog = () => {
         <p className={css.filterEquip}>Vehicle equipment</p>
         <div className={css.line}></div>
         <ul className={css.eqList}>
-          <li className={css.eqItem} onClick={() => toggleEquipment('AC')}>
+          <li
+            className={`${css.eqItem} ${
+              filters.equipment.includes('AC') ? css.active : ''
+            }`}
+            onClick={() => toggleEquipment('AC')}
+          >
             <svg className={css.filterIcon} width={32} height={32}>
               <use href="/images/icons.svg#icon-AC"></use>
             </svg>
             AC
           </li>
           <li
-            className={css.eqItem}
+            className={`${css.eqItem} ${
+              filters.equipment.includes('automatic') ? css.active : ''
+            }`}
             onClick={() => toggleEquipment('automatic')}
           >
             <svg className={css.filterIcon} width={32} height={32}>
@@ -65,20 +72,28 @@ const Catalog = () => {
             </svg>
             Automatic
           </li>
-          <li className={css.eqItem} onClick={() => toggleEquipment('kitchen')}>
+          <li
+            className={`${css.eqItem} ${
+              filters.equipment.includes('kitchen') ? css.active : ''
+            }`}
+            onClick={() => toggleEquipment('kitchen')}
+          >
             <svg className={css.filterIcon} width={32} height={32}>
               <use href="/images/icons.svg#icon-kitchen"></use>
             </svg>
             Kitchen
           </li>
-          <li className={css.eqItem} onClick={() => toggleEquipment('TV')}>
+          <li
+            className={`${css.eqItem} ${filters.equipment.includes('TV') ? css.active : ''}`}
+            onClick={() => toggleEquipment('TV')}
+          >
             <svg className={css.filterIcon} width={32} height={32}>
               <use href="/images/icons.svg#icon-tv"></use>
             </svg>
             TV
           </li>
           <li
-            className={css.eqItem}
+            className={`${css.eqItem} ${filters.equipment.includes('bathroom') ? css.active : ''}`}
             onClick={() => toggleEquipment('bathroom')}
           >
             <svg className={css.filterIcon} width={32} height={32}>
@@ -90,14 +105,17 @@ const Catalog = () => {
         <p className={css.filterEquip}>Vehicle type</p>
         <div className={css.line}></div>
         <ul className={css.eqList}>
-          <li className={css.eqItem} onClick={() => setType('van')}>
+          <li
+            className={`${css.eqItem} ${filters.form === 'van' ? css.active : ''}`}
+            onClick={() => setType('van')}
+          >
             <svg className={css.filterIcon} width={32} height={32}>
               <use href="/images/icons.svg#icon-three"></use>
             </svg>
             Van
           </li>
           <li
-            className={`${css.eqItem} ${css.eqItemBig}`}
+            className={`${css.eqItem} ${css.eqItemBig} ${filters.form === 'integrated' ? css.active : ''}`}
             onClick={() => setType('integrated')}
           >
             <svg className={css.filterIcon} width={32} height={32}>
@@ -105,21 +123,32 @@ const Catalog = () => {
             </svg>
             Fully Integrated
           </li>
-          <li className={css.eqItem} onClick={() => setType('alcove')}>
+          <li
+            className={`${css.eqItem}  ${filters.form === 'alcove' ? css.active : ''}`}
+            onClick={() => setType('alcove')}
+          >
             <svg className={css.filterIcon} width={32} height={32}>
               <use href="/images/icons.svg#icon-nine"></use>
             </svg>
             Alcove
           </li>
         </ul>
-        <Button size="m" onClick={() => fetchCampers()}>
+        <Button
+          size="m"
+          onClick={() => {
+            fetchCampers();
+            // resetFilters();
+          }}
+        >
           Search
         </Button>
       </div>
       <div className={css.wrapList}>
         <div className={css.CampersList}>
-          {Array.isArray(campers) && campers.length === 0 ? (
+          {loading ? (
             <p>Loading...</p>
+          ) : camperList.length === 0 ? (
+            <p>No campers found.</p>
           ) : (
             camperList.map((camper: Camper) => (
               <CamperCard key={camper.id} camper={camper} />
@@ -127,7 +156,7 @@ const Catalog = () => {
           )}
         </div>
 
-        {camperList.length < total && (
+        {!loading && camperList.length > 0 && camperList.length < total && (
           <button
             type="button"
             className={css.btnLoadMore}

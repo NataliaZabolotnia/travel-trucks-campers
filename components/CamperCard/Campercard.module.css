@@ -67,3 +67,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.icon {
+  stroke: #000;
+  fill: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.activeHeart {
+  stroke: #e44848;
+  fill: #e44848;
+}
