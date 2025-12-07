@@ -28,6 +28,7 @@ export interface Camper {
   microwave: boolean;
   gas: boolean;
   water: boolean;
+  automatic: boolean;
   gallery: { thumb: string; original: string }[];
   reviews: Review[];
 }
