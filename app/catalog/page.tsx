@@ -18,7 +18,7 @@ const Catalog = () => {
     fetchCampers,
     loadFavorites,
     loadMore,
-    resetFilters,
+    // resetFilters,
   } = useCampersStore();
   useEffect(() => {
     loadFavorites();
